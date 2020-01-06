@@ -1,0 +1,56 @@
+﻿@model Test_code_frest.Models.Users
+
+@{
+    ViewBag.Title = "UserProfile";
+}
+
+@using (Html.BeginForm("Login", "Users", FormMethod.Get))
+{
+    @Html.AntiForgeryToken()
+
+    <h2>UserProfile</h2>
+
+    <p>
+
+        @Html.ActionLink("Reset your Password", "RestPassword")
+    </p>
+
+
+    <div>
+        
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayName("User Name : ")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserNamr)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("User password : ")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserPass)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("User Email :")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserEmail)
+            </dd>
+
+            
+
+        </dl>
+    </div>
+    
+}
+<h5>
+    @Session["message"]
+</h5>
+
