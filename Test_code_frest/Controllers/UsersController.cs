@@ -250,7 +250,7 @@ namespace Test_code_frest.Controllers
                 client.Port = 587;
                 client.EnableSsl = true;
 
-                NetworkCredential nc = new NetworkCredential("azoz141415@gmail.com", "05618646");
+                NetworkCredential nc = new NetworkCredential("azoz141415@gmail.com", "Password");
                 client.UseDefaultCredentials = true;
                 client.Credentials = nc;
                 client.Send(mailMessage);
@@ -294,6 +294,12 @@ namespace Test_code_frest.Controllers
             return View(users);
 
 
+        }
+        public ActionResult Users(string Serching)
+        {
+
+            // List<Users> users = db.Users.ToList<Users>();
+            return View(db.Users.Where(x => x.UserNamr.Contains(Serching) || x.UserEmail.Contains(Serching) || Serching == null).ToList());
         }
 
 

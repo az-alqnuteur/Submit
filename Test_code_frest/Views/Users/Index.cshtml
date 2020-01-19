@@ -3,42 +3,42 @@
 
 <h2>All Users</h2>
 
-<p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <p>
     @Html.ActionLink("Create New", "Create")
-    @using (Html.BeginForm("Index", "Users", FormMethod.Get))
-    {
-
-        @Html.TextBox("Serching")
-        <input type="submit" value="Search" />
-    }
 </p>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>User ID</th>
-            <th>User Name</th>
-            <th>User Email</th>
-        </tr>
-    </thead>
-    <tbody>
-        @if (Model.Count() == 0)
-        {
-            <tr>
-                <td colspan="3" style="color : red">
-                    NO Decument
-                </td>
-            </tr>
-        }
-        else
-        {
-            foreach (var item in Model)
-            {
-                <tr>
-                    <td>@item.Id</td>
-                    <td>@item.UserNamr</td>
-                    <td>@item.UserEmail</td>
-                </tr>
-            }
-        }
-    </tbody>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserNamr)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.UserEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserDetails)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserNamr)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.UserEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserDetails)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
 </table>

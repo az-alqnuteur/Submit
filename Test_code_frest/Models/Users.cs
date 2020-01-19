@@ -14,7 +14,7 @@ namespace Test_code_frest.Models
         [Required(ErrorMessage = "Invalid")]
         [MinLength(8)]
         [DataType(DataType.Password)]
-        [Display(Name = "Enter the Code")]
+        [Display(Name = "User password ")]
         public string UserPass { get; set; }
         [Required(ErrorMessage = "Invalid")]
         [Display(Name = "User Email")]

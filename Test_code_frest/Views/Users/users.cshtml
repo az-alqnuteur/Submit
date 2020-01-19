@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Test_code_frest.Models.Users>
+
+@{
+    ViewBag.Title = "User";
+}
+
+<h2>User</h2>
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+    @using (Html.BeginForm("Index", "Users", FormMethod.Get))
+    {
+
+        @Html.TextBox("Serching")
+        <input type="submit" value="Search" />
+    }
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>User ID</th>
+            <th>User Name</th>
+            <th>User Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="3" style="color : red">
+                    NO Decument
+                </td>
+            </tr>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.UserNamr</td>
+                    <td>@item.UserEmail</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
